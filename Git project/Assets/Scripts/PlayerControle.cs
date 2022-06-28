@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerControle : MonoBehaviour
 {
+    // Numero de moedas coletadas 
+    public int coins = 0;
+    
+    
     private Gamecontrole _gamecontrole;
     private PlayerInput _playerInput;
     private Camera _mainCamera;
@@ -126,6 +130,17 @@ public class PlayerControle : MonoBehaviour
     private void OnDrawGizmos()
     {
         Debug.DrawRay(start: transform.position, dir: Vector3.down * rayDistance, Color.yellow);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {   
+            //Aumenta o numero de objetos para o jogador 
+            coins++;
+            // Destrua o objeto coin
+            Destroy(other.gameObject);
+        }
     }
 }
 
