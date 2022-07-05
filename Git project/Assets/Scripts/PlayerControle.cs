@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,8 @@ public class PlayerControle : MonoBehaviour
     // Numero de moedas coletadas 
     public int coins = 0;
     
+    //REFERENCIA PARA ELEMTNO INTERFACE DE TEXTO
+    public TMP_Text coinText;
     
     private Gamecontrole _gamecontrole;
     private PlayerInput _playerInput;
@@ -137,7 +140,12 @@ public class PlayerControle : MonoBehaviour
         if (other.CompareTag("Coin"))
         {   
             //Aumenta o numero de objetos para o jogador 
-            coins++;
+            coins++; 
+            
+            //atualizar o numero de moedas na interface 
+            coinText.text = coins.ToString();
+            
+            
             // Destrua o objeto coin
             Destroy(other.gameObject);
         }
