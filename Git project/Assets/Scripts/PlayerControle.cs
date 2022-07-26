@@ -10,14 +10,16 @@ public class PlayerControle : MonoBehaviour
     // Numero de moedas coletadas 
     public int coins = 0;
     
-    //REFERENCIA PARA ELEMTNO INTERFACE DE TEXTO
-    public TMP_Text coinText;
-    
     private Gamecontrole _gamecontrole;
+   
     private PlayerInput _playerInput;
+    
     private Camera _mainCamera;
+    
     private Vector2 _moveInput;
+    
     private Rigidbody _rigidbody;
+    
     public float moveMultiplier;
 
     public float maxVelocity;
@@ -142,8 +144,8 @@ public class PlayerControle : MonoBehaviour
             //Aumenta o numero de objetos para o jogador 
             coins++; 
             
-            //atualizar o numero de moedas na interface 
-            coinText.text = coins.ToString();
+            //Manda notificação da mudança do valor de coins 
+            PlayerObserverManager.CoinsChanged(coins);
             
             
             // Destrua o objeto coin
