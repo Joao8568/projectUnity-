@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private TMP_Text PText;
+    
+        private void OnEnable()
+        {
+            PlayerObserverManager.OnCoinsChanged += UpdatePText;
+        }
+    
+        private void OnDisable()
+        {
+            PlayerObserverManager.OnCoinsChanged -= UpdatePText;
+        }
+    
+        private void UpdateCoinText(int newCoinsValue)
+        {
+           PTextText.text = newCoinsValue.ToString();
+        }
 }

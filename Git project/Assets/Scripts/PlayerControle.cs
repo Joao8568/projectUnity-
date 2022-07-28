@@ -9,6 +9,10 @@ public class PlayerControle : MonoBehaviour
 {
     // Numero de moedas coletadas 
     public int coins = 0;
+
+    public TMP_Text coinText;
+    
+    public int colecionavel = 0;
     
     private Gamecontrole _gamecontrole;
    
@@ -152,5 +156,9 @@ public class PlayerControle : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    
+    
 }
+
+
 
